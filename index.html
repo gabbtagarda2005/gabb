@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mhyles Gabb Aguilar</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">Gabb</div>
+    <nav class="navbar">
+      <a href="index.html" class="dashboard">Home</a>
+      <a href="about.html" class="about-link">About</a>
+      <a href="contact.html" class="contact-link">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Hi, I'm <span>Mhyles Gabb Aguilar</span></h1>
+      <h2>Student at Bukidnon State University</h2>
+      <p>
+people live their lives bound by what they accept as correct and true, and that's how they define reality.
+      </p>
+      <div class="buttons">
+        <a href="contact.html" class="btn-outline">Let's Talk</a>
+      </div>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/share/1AMDVdaagG/
+" target="_blank">
+          <img src="meta.svg" alt="Facebook" />
+        </a>
+        <a href="https://www.instagram.com/mhylesgabbaguilar?igsh=MWk3MGs1bTZ1Mm1sYw==" target="_blank">
+          <img src="instagram.svg" alt="Instagram" />
+        </a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="me1.jpg" alt="Mhyles Gabb Aguilar" />
+    </div>
+  </section>
+
+  <script>
+    const path = window.location.pathname;
+    if (path.includes('index')) {
+      document.querySelector('.home-link').classList.add('active');
+    } else if (path.includes('about')) {
+      document.querySelector('.about-link').classList.add('active');
+    } else if (path.includes('contact')) {
+      document.querySelector('.contact-link').classList.add('active');
+    }
+  </script>
+</body>
+</html>

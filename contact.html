@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mhyles Gabb Aguilar</title>
+  <link rel="stylesheet" href="contact.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">Gabb</div>
+    <nav class="navbar">
+      <a href="index.html" class="dashboard">Home</a>
+      <a href="about.html" class="about-link">About</a>
+      <a href="contact.html" class="contact-link">Contact</a>
+    </nav>
+  </header>
+
+  <section class="contact-section">
+    <div class="contact-container">
+      <h2>Let's Get In Touch</h2>
+      <p>If you have something to talk, feel free to message me!</p>
+
+      <!-- ✅ Updated Form -->
+      <form class="contact-form" action="https://formspree.io/f/xldbyekd" method="POST">
+        <div class="input-group">
+          <input type="text" name="name" placeholder="Your Name" required />
+          <input type="email" name="email" placeholder="Your Email" required />
+        </div>
+        <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
+        <button type="submit" class="btn-submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <script>
+    const path = window.location.pathname;
+    if (path.includes('index')) {
+      document.querySelector('.home-link')?.classList.add('active');
+    } else if (path.includes('about')) {
+      document.querySelector('.about-link')?.classList.add('active');
+    } else if (path.includes('contact')) {
+      document.querySelector('.contact-link')?.classList.add('active');
+    }
+  </script>
+</body>
+</html>

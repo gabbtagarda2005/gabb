@@ -1,0 +1,245 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: radial-gradient(circle at bottom left, #012132, #000814);
+  color: #fff;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+.navbar a {
+  color: #ccc;
+  text-decoration: none;
+  margin-left: 30px;
+  font-size: 1rem;
+  transition: 0.3s;
+}
+
+.navbar a:hover,
+.navbar a.active {
+  color: #00bfff;
+  border-bottom: 2px solid #00bfff;
+}
+
+.about-section {
+  display: flex;
+  justify-content: center;
+  padding: 80px 20px;
+}
+
+.about-container {
+  display: flex;
+  background-color: rgba(0, 17, 34, 0.6);
+  max-width: 900px;
+  border-radius: 15px;
+  box-shadow: 0 0 25px rgba(0, 191, 255, 0.1);
+  overflow: hidden;
+  width: 100%;
+}
+
+.profile-img-wrapper {
+  flex: 1;
+  background: #001f3f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+
+.profile-img {
+  border-radius: 50%;
+  border: 4px solid #00bfff;
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+}
+
+.profile-info {
+  flex: 2;
+  padding: 40px 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.profile-info h1 {
+  font-size: 2.8rem;
+  margin-bottom: 10px;
+  color: #00bfff;
+}
+
+.profile-info h3 {
+  font-size: 1.4rem;
+  margin-bottom: 25px;
+  color: #ccc;
+  font-weight: normal;
+}
+
+.profile-info p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  color: #ddd;
+}
+
+.social-icons {
+  display: flex;
+  gap: 25px;
+}
+
+.social-icons a img {
+  width: 30px;
+  filter: brightness(0) invert(1);
+  transition: filter 0.3s ease;
+}
+
+.social-icons a:hover img {
+  filter: brightness(0) invert(0.65) sepia(1) saturate(6) hue-rotate(180deg);
+}
+
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  .profile-img-wrapper {
+    padding: 30px 0;
+  }
+  .profile-info {
+    padding: 20px 30px;
+  }
+  .social-icons {
+    justify-content: center;
+  }
+}
+.social-icons a img {
+  width: 35px;
+  height: 35px;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.social-icons a:hover img {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px rgba(0, 191, 255, 0.5);
+}
+.navbar a {
+  position: relative;
+  color: #ccc;
+  text-decoration: none;
+  margin-left: 30px;
+  font-size: 1rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.navbar a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0%;
+  height: 3px;
+  background: #00bfff;
+  border-radius: 2px;
+  transition: width 0.4s ease;
+  box-shadow: 0 0 8px #00bfff;
+}
+
+.navbar a:hover {
+  color: #00bfff;
+  transform: scale(1.05);
+}
+
+.navbar a:hover::after {
+  width: 100%;
+}
+
+.navbar a.active {
+  color: #00bfff;
+  border-bottom: none; /* Remove old border */
+}
+
+.navbar a.active::after {
+  width: 100%;
+  height: 3px;
+  background: #00bfff;
+  box-shadow: 0 0 10px #00bfff;
+  border-radius: 2px;
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  content: '';
+}
+.navbar a {
+  position: relative;
+  overflow: hidden;
+  color: #ccc;
+  text-decoration: none;
+  margin-left: 30px;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: color 0.3s ease, transform 0.3s ease;
+  user-select: none;
+}
+
+/* Hover effects */
+.navbar a:hover {
+  color: #00bfff;
+  transform: scale(1.05);
+  text-shadow: 0 0 5px #00bfff, 0 0 15px #00bfff;
+}
+
+/* Underline animation */
+.navbar a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0%;
+  height: 3px;
+  background: #00bfff;
+  border-radius: 2px;
+  transition: width 0.4s ease;
+  box-shadow: 0 0 8px #00bfff;
+}
+
+.navbar a:hover::after {
+  width: 100%;
+  box-shadow: 0 0 15px #00bfff, 0 0 30px #00bfff;
+}
+
+/* Active link style */
+.navbar a.active {
+  color: #00bfff;
+}
+
+.navbar a.active::after {
+  width: 100%;
+  height: 3px;
+  background: #00bfff;
+  box-shadow: 0 0 10px #00bfff;
+  border-radius: 2px;
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+}
+
