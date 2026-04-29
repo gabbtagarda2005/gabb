@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <style>
+      .icon-bg { fill: #000814; }
+      .icon-text { fill: #00bfff; font-family: Arial, sans-serif; font-size: 60px; font-weight: bold; text-anchor: middle; }
+    </style>
+  </defs>
+  <rect class="icon-bg" width="100" height="100" rx="20"/>
+  <circle cx="50" cy="50" r="45" fill="none" stroke="#00bfff" stroke-width="2" opacity="0.3"/>
+  <text class="icon-text" x="50" y="70">G</text>
+</svg>

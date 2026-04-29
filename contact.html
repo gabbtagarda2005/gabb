@@ -3,10 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mhyles Gabb Aguilar</title>
+  <title>Contact - Mhyles Gabb Aguilar</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="stylesheet" href="contact.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
 </head>
-<body>
+<body class="light-mode">
   <header>
     <div class="logo">Gabb</div>
     <nav class="navbar">
@@ -14,15 +16,24 @@
       <a href="about.html" class="about-link">About</a>
       <a href="contact.html" class="contact-link">Contact</a>
     </nav>
+    <button class="theme-toggle" id="themeToggle" title="Toggle dark/light mode">
+      <span class="theme-icon">🌙</span>
+    </button>
   </header>
 
-  <section class="contact-section">
+  <section class="contact-section" data-aos="fade-up">
     <div class="contact-container">
       <h2>Let's Get In Touch</h2>
-      <p>If you have something to talk, feel free to message me!</p>
+      <p class="subtitle">If you have something to talk, feel free to message me!</p>
 
-      <!-- ✅ Updated Form -->
-      <form class="contact-form" action="https://formspree.io/f/xldbyekd" method="POST">
+      <!-- Success Toast Notification -->
+      <div class="toast" id="successToast">
+        <span class="toast-icon">✓</span>
+        <span class="toast-message">Message sent successfully! I'll get back to you soon.</span>
+      </div>
+
+      <!-- Contact Form -->
+      <form class="contact-form" id="contactForm" action="https://formspree.io/f/xldbyekd" method="POST">
         <div class="input-group">
           <input type="text" name="name" placeholder="Your Name" required />
           <input type="email" name="email" placeholder="Your Email" required />
@@ -33,10 +44,62 @@
     </div>
   </section>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script>
+    // Initialize AOS
+    AOS.init({
+      duration: 1000,
+      once: false,
+      offset: 100
+    });
+
+    // Theme Toggle
+    const themeToggle = document.getElementById('themeToggle');
+    const body = document.body;
+
+    // Check for saved theme preference or default to 'light-mode'
+    const currentTheme = localStorage.getItem('theme') || 'light-mode';
+    body.classList.add(currentTheme);
+    updateThemeIcon(currentTheme);
+
+    themeToggle.addEventListener('click', () => {
+      const isLightMode = body.classList.contains('light-mode');
+      
+      if (isLightMode) {
+        body.classList.remove('light-mode');
+        body.classList.add('dark-mode');
+        localStorage.setItem('theme', 'dark-mode');
+        updateThemeIcon('dark-mode');
+      } else {
+        body.classList.remove('dark-mode');
+        body.classList.add('light-mode');
+        localStorage.setItem('theme', 'light-mode');
+        updateThemeIcon('light-mode');
+      }
+    });
+
+    function updateThemeIcon(theme) {
+      themeToggle.querySelector('.theme-icon').textContent = theme === 'dark-mode' ? '☀️' : '🌙';
+    }
+
+    // Form Success Feedback
+    const contactForm = document.getElementById('contactForm');
+    const successToast = document.getElementById('successToast');
+
+    contactForm.addEventListener('submit', function(e) {
+      // Formspree will handle the submission
+      // Show toast after submission
+      setTimeout(() => {
+        successToast.classList.add('show');
+        setTimeout(() => {
+          successToast.classList.remove('show');
+        }, 4000);
+      }, 500);
+    });
+
     const path = window.location.pathname;
-    if (path.includes('index')) {
-      document.querySelector('.home-link')?.classList.add('active');
+    if (path.includes('index') || path === '/') {
+      document.querySelector('.dashboard')?.classList.add('active');
     } else if (path.includes('about')) {
       document.querySelector('.about-link')?.classList.add('active');
     } else if (path.includes('contact')) {
