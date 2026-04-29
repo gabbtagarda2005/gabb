@@ -3,10 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mhyles Gabb Aguilar</title>
+  <title>Mhyles Gabb Aguilar - Portfolio</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="stylesheet" href="style.css" />
+  <!-- AOS Library for Scroll Animations -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+  <!-- DevIcons for Tech Stack -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css" />
 </head>
-<body>
+<body class="light-mode">
   <header>
     <div class="logo">Gabb</div>
     <nav class="navbar">
@@ -14,6 +19,9 @@
       <a href="about.html" class="about-link">About</a>
       <a href="contact.html" class="contact-link">Contact</a>
     </nav>
+    <button class="theme-toggle" id="themeToggle" title="Toggle dark/light mode">
+      <span class="theme-icon">🌙</span>
+    </button>
   </header>
 
   <section class="hero">
@@ -41,14 +49,128 @@ people live their lives bound by what they accept as correct and true, and that'
     </div>
   </section>
 
+  <!-- Tech Stack Section -->
+  <section class="tech-stack" data-aos="fade-up">
+    <div class="container">
+      <h2>My Tech Stack</h2>
+      <p class="subtitle">Technologies I work with</p>
+      <p class="date-range">2017-2023</p>
+      <div class="tech-grid">
+        <div class="tech-item" data-aos="zoom-in" data-aos-delay="100">
+          <i class="devicon-html5-plain"></i>
+          <span>HTML5</span>
+        </div>
+        <div class="tech-item" data-aos="zoom-in" data-aos-delay="150">
+          <i class="devicon-css3-plain"></i>
+          <span>CSS3</span>
+        </div>
+        <div class="tech-item" data-aos="zoom-in" data-aos-delay="200">
+          <i class="devicon-javascript-plain"></i>
+          <span>JavaScript</span>
+        </div>
+        <div class="tech-item" data-aos="zoom-in" data-aos-delay="250">
+          <i class="devicon-python-plain"></i>
+          <span>Python</span>
+        </div>
+        <div class="tech-item" data-aos="zoom-in" data-aos-delay="300">
+          <i class="devicon-react-original"></i>
+          <span>React</span>
+        </div>
+        <div class="tech-item" data-aos="zoom-in" data-aos-delay="350">
+          <i class="devicon-git-plain"></i>
+          <span>Git</span>
+        </div>
+        <div class="tech-item" data-aos="zoom-in" data-aos-delay="400">
+          <i class="devicon-php-plain"></i>
+          <span>PHP</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section class="projects" data-aos="fade-up">
+    <div class="container">
+      <h2>Featured Projects</h2>
+      <p class="subtitle">A showcase of my work</p>
+      <div class="projects-grid">
+        <div class="project-card" data-aos="flip-left">
+          <div class="project-image">
+            <img src="me1.jpg" alt="Portfolio Project" />
+          </div>
+          <div class="project-info">
+            <h3>Personal Portfolio</h3>
+            <p>An elegant dark-themed portfolio website showcasing my skills and projects. Built with HTML, CSS, and JavaScript with glassmorphism effects.</p>
+            <div class="project-links">
+              <a href="https://github.com/gabbtagarda2005/gabb" target="_blank" class="link-btn">GitHub</a>
+              <a href="#" class="link-btn">Live Demo</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card" data-aos="flip-left" data-aos-delay="100">
+          <div class="project-image">
+            <img src="me.jpg" alt="Project 2" />
+          </div>
+          <div class="project-info">
+            <h3>Upcoming Project</h3>
+            <p>Building innovative solutions to solve real-world problems. Stay tuned for more exciting projects!</p>
+            <div class="project-links">
+              <a href="#" class="link-btn disabled">GitHub</a>
+              <a href="#" class="link-btn disabled">Live Demo</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script>
+    // Initialize AOS
+    AOS.init({
+      duration: 1000,
+      once: false,
+      offset: 100
+    });
+
+    // Theme Toggle
+    const themeToggle = document.getElementById('themeToggle');
+    const htmlElement = document.documentElement;
+    const body = document.body;
+
+    // Check for saved theme preference or default to 'light-mode'
+    const currentTheme = localStorage.getItem('theme') || 'light-mode';
+    body.classList.add(currentTheme);
+    updateThemeIcon(currentTheme);
+
+    themeToggle.addEventListener('click', () => {
+      const isLightMode = body.classList.contains('light-mode');
+      
+      if (isLightMode) {
+        body.classList.remove('light-mode');
+        body.classList.add('dark-mode');
+        localStorage.setItem('theme', 'dark-mode');
+        updateThemeIcon('dark-mode');
+      } else {
+        body.classList.remove('dark-mode');
+        body.classList.add('light-mode');
+        localStorage.setItem('theme', 'light-mode');
+        updateThemeIcon('light-mode');
+      }
+    });
+
+    function updateThemeIcon(theme) {
+      themeToggle.querySelector('.theme-icon').textContent = theme === 'dark-mode' ? '☀️' : '🌙';
+    }
+
     const path = window.location.pathname;
-    if (path.includes('index')) {
-      document.querySelector('.home-link').classList.add('active');
+    if (path.includes('index') || path === '/') {
+      document.querySelector('.dashboard')?.classList.add('active');
     } else if (path.includes('about')) {
-      document.querySelector('.about-link').classList.add('active');
+      document.querySelector('.about-link')?.classList.add('active');
     } else if (path.includes('contact')) {
-      document.querySelector('.contact-link').classList.add('active');
+      document.querySelector('.contact-link')?.classList.add('active');
     }
   </script>
 </body>

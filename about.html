@@ -3,10 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mhyles Gabb Aguilar</title>
+  <title>About - Mhyles Gabb Aguilar</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="stylesheet" href="about.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
 </head>
-<body>
+<body class="light-mode">
   <header>
     <div class="logo">Gabb</div>
     <nav class="navbar">
@@ -14,6 +16,9 @@
       <a href="about.html" class="nav-link about-link">About</a>
       <a href="contact.html" class="nav-link contact-link">Contact</a>
     </nav>
+    <button class="theme-toggle" id="themeToggle" title="Toggle dark/light mode">
+      <span class="theme-icon">🌙</span>
+    </button>
   </header>
 
   <section class="about-section">
@@ -26,9 +31,16 @@
         <h3>BSIT student</h3>
         <p>
           I’m from Don Carlos Bukidnon, 19 years old, and a third year student.
-          
-          
-       </p>
+        </p>
+        
+        <h2>My Hobbies</h2>
+        <div class="hobbies">
+          <span class="hobby-item">♟️ Playing Chess</span>
+          <span class="hobby-item">🏀 Basketball</span>
+          <span class="hobby-item">🥋 Karate</span>
+          <span class="hobby-item">🥾 Hiking</span>
+          <span class="hobby-item">🏃 Running</span>
+        </div>
         
         <div class="social-icons">
           <a href="https://www.facebook.com/share/1AMDVdaagG/
@@ -43,17 +55,130 @@
     </div>
   </section>
 
+  <!-- Education Timeline Section -->
+  <section class="education-section" data-aos="fade-up">
+    <div class="timeline-container">
+      <h2>My Education Journey</h2>
+      <div class="timeline">
+        <div class="timeline-item" data-aos="flip-left">
+          <div class="timeline-marker">📚</div>
+          <div class="timeline-content">
+            <h3>Senior High School</h3>
+            <p class="year">2019 - 2021</p>
+            <p>Completed my secondary education and discovered my passion for technology and information systems.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-aos="flip-left" data-aos-delay="100">
+          <div class="timeline-marker">🎓</div>
+          <div class="timeline-content">
+            <h3>Bachelor of Science in Information Technology (BSIT)</h3>
+            <p class="year">2023-present</p>
+            <p>Currently pursuing my degree at Bukidnon State University, focusing on web development and software engineering. Third year student specializing in full-stack development.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-aos="flip-left" data-aos-delay="200">
+          <div class="timeline-marker">🚀</div>
+          <div class="timeline-content">
+            <h3>Future Goals</h3>
+            <p class="year">Post-Graduation</p>
+            <p>I aspire to become a full-stack web developer and contribute to innovative tech solutions that make a positive impact in society.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hobbies to Skills Mapping -->
+  <section class="hobbies-meaning" data-aos="fade-up">
+    <div class="hobbies-container">
+      <h2>How My Hobbies Shape My Skills</h2>
+      <div class="hobbies-grid">
+        <div class="hobby-card" data-aos="zoom-in">
+          <div class="hobby-icon">♟️</div>
+          <h3>Chess</h3>
+          <p><strong>Translates to:</strong> Strategic Thinking & Problem Solving</p>
+          <p>Chess teaches me to think multiple steps ahead and analyze different solutions before committing to code.</p>
+        </div>
+
+        <div class="hobby-card" data-aos="zoom-in" data-aos-delay="100">
+          <div class="hobby-icon">🏀</div>
+          <h3>Basketball</h3>
+          <p><strong>Translates to:</strong> Teamwork & Communication</p>
+          <p>Playing as a team taught me the importance of collaboration and clear communication in group projects.</p>
+        </div>
+
+        <div class="hobby-card" data-aos="zoom-in" data-aos-delay="200">
+          <div class="hobby-icon">🥋</div>
+          <h3>Karate</h3>
+          <p><strong>Translates to:</strong> Discipline & Focus</p>
+          <p>Martial arts instilled in me the discipline needed for consistent learning and mastering complex technical skills.</p>
+        </div>
+
+        <div class="hobby-card" data-aos="zoom-in" data-aos-delay="300">
+          <div class="hobby-icon">🥾</div>
+          <h3>Hiking</h3>
+          <p><strong>Translates to:</strong> Persistence & Patience</p>
+          <p>Long hikes taught me that reaching goals requires consistent effort, just like debugging and learning new technologies.</p>
+        </div>
+
+        <div class="hobby-card" data-aos="zoom-in" data-aos-delay="400">
+          <div class="hobby-icon">🏃</div>
+          <h3>Running</h3>
+          <p><strong>Translates to:</strong> Optimization & Efficiency</p>
+          <p>Running teaches me to optimize my efforts for maximum performance, a principle I apply to clean and efficient code.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const path = window.location.pathname;
-      if (path.includes('dashboard')) {
-        document.querySelector('.home-link')?.classList.add('active');
-      } else if (path.includes('about')) {
-        document.querySelector('.about-link')?.classList.add('active');
-      } else if (path.includes('contact')) {
-        document.querySelector('.contact-link')?.classList.add('active');
+    // Initialize AOS
+    AOS.init({
+      duration: 1000,
+      once: false,
+      offset: 100
+    });
+
+    // Theme Toggle
+    const themeToggle = document.getElementById('themeToggle');
+    const body = document.body;
+
+    // Check for saved theme preference or default to 'light-mode'
+    const currentTheme = localStorage.getItem('theme') || 'light-mode';
+    body.classList.add(currentTheme);
+    updateThemeIcon(currentTheme);
+
+    themeToggle.addEventListener('click', () => {
+      const isLightMode = body.classList.contains('light-mode');
+      
+      if (isLightMode) {
+        body.classList.remove('light-mode');
+        body.classList.add('dark-mode');
+        localStorage.setItem('theme', 'dark-mode');
+        updateThemeIcon('dark-mode');
+      } else {
+        body.classList.remove('dark-mode');
+        body.classList.add('light-mode');
+        localStorage.setItem('theme', 'light-mode');
+        updateThemeIcon('light-mode');
       }
     });
+
+    function updateThemeIcon(theme) {
+      themeToggle.querySelector('.theme-icon').textContent = theme === 'dark-mode' ? '☀️' : '🌙';
+    }
+
+    const path = window.location.pathname;
+    if (path.includes('index') || path === '/') {
+      document.querySelector('.dashboard')?.classList.add('active');
+    } else if (path.includes('about')) {
+      document.querySelector('.about-link')?.classList.add('active');
+    } else if (path.includes('contact')) {
+      document.querySelector('.contact-link')?.classList.add('active');
+    }
   </script>
 </body>
 </html>
