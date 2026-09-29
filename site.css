@@ -27,25 +27,6 @@ body.dark-mode {
   --gutter: clamp(16px, 3vw, 40px);
 }
 
-body.light-mode {
-  --bg: #f5f3fb;
-  --bg-top: #ece8f7;
-  --surface: rgba(255, 255, 255, 0.72);
-  --surface-hover: rgba(255, 255, 255, 0.95);
-  --border: rgba(76, 29, 149, 0.14);
-  --border-hover: rgba(124, 58, 237, 0.5);
-  --text: #16121f;
-  --muted: #5b5569;
-  --accent: #7c3aed;
-  --accent-text: #6d28d9;
-  --accent-deep: #5b21b6;
-  --frame: rgba(124, 58, 237, 0.28);
-  --grid: rgba(76, 29, 149, 0.05);
-  --glow: rgba(167, 139, 250, 0.3);
-  --title-from: #16121f;
-  --title-to: #5b5569;
-}
-
 body {
   font-family: 'Plus Jakarta Sans', 'Segoe UI', sans-serif;
   background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg) 60%);
@@ -192,21 +173,6 @@ body {
 .navbar a.active::after {
   width: 100%;
   background: var(--accent);
-}
-
-.theme-toggle {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  padding: 6px 10px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: border-color 0.25s ease, box-shadow 0.25s ease;
-}
-
-.theme-toggle:hover {
-  border-color: var(--border-hover);
-  box-shadow: 0 0 16px rgba(139, 92, 246, 0.3);
 }
 
 /* ========== SHARED PIECES ========== */

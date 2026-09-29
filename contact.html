@@ -14,8 +14,7 @@
   <link rel="stylesheet" href="site.css?v=1.0" />
   <link rel="stylesheet" href="contact.css?v=2.0" />
 </head>
-<body>
-  <script>document.body.classList.add(localStorage.getItem('theme') || 'dark-mode');</script>
+<body class="dark-mode">
   <div class="page-bg" aria-hidden="true">
     <span class="frame frame-1"></span>
     <span class="frame frame-2"></span>
@@ -30,9 +29,6 @@
       <a href="about.html" class="about-link">About</a>
       <a href="contact.html" class="contact-link">Contact</a>
     </nav>
-    <button class="theme-toggle" id="themeToggle" title="Toggle dark/light mode">
-      <span class="theme-icon">🌙</span>
-    </button>
   </header>
 
   <section class="contact-section">
@@ -71,26 +67,6 @@
   </div>
 
   <script>
-    // Theme Toggle
-    const themeToggle = document.getElementById('themeToggle');
-    const body = document.body;
-
-    // Check for saved theme preference or default to 'dark-mode'
-    const currentTheme = localStorage.getItem('theme') || 'dark-mode';
-    updateThemeIcon(currentTheme);
-
-    themeToggle.addEventListener('click', () => {
-      const next = body.classList.contains('light-mode') ? 'dark-mode' : 'light-mode';
-      body.classList.remove('light-mode', 'dark-mode');
-      body.classList.add(next);
-      localStorage.setItem('theme', next);
-      updateThemeIcon(next);
-    });
-
-    function updateThemeIcon(theme) {
-      themeToggle.querySelector('.theme-icon').textContent = theme === 'dark-mode' ? '☀️' : '🌙';
-    }
-
     // Form Success Feedback
     const contactForm = document.getElementById('contactForm');
     const successToast = document.getElementById('successToast');
