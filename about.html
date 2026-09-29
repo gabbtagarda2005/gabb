@@ -8,84 +8,89 @@
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
-  <link rel="stylesheet" href="about.css?v=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&family=Space+Mono&display=swap" />
+  <link rel="stylesheet" href="site.css?v=1.0" />
+  <link rel="stylesheet" href="about.css?v=2.0" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
 </head>
-<body class="light-mode">
-  <header>
-    <div class="logo">Gabb</div>
+<body>
+  <script>document.body.classList.add(localStorage.getItem('theme') || 'dark-mode');</script>
+  <div class="page-bg" aria-hidden="true">
+    <span class="frame frame-1"></span>
+    <span class="frame frame-2"></span>
+    <span class="glow glow-1"></span>
+    <span class="glow glow-2"></span>
+  </div>
+
+  <header class="site-header">
+    <a href="index.html" class="logo">Gabb</a>
     <nav class="navbar">
-      <a href="index.html" class="nav-link dashboard">Home</a>
-      <a href="about.html" class="nav-link about-link">About</a>
-      <a href="contact.html" class="nav-link contact-link">Contact</a>
+      <a href="index.html" class="dashboard">Home</a>
+      <a href="about.html" class="about-link">About</a>
+      <a href="contact.html" class="contact-link">Contact</a>
     </nav>
     <button class="theme-toggle" id="themeToggle" title="Toggle dark/light mode">
       <span class="theme-icon">🌙</span>
     </button>
   </header>
 
-  <section class="about-section">
-    <div class="about-container">
-      <div class="profile-img-wrapper">
-        <img src="me.jpg" alt="Mhyles Gabb Aguilar" class="profile-img" />
+  <section class="about-intro">
+    <div class="about-photo">
+      <img src="me1.jpg" alt="Mhyles Gabb Aguilar walking through tall grass by a river" />
+    </div>
+    <div class="about-info">
+      <span class="eyebrow">About me</span>
+      <h1 class="display-title about-name">Mhyles Gabb<br />Tagarda Aguilar</h1>
+      <p class="about-role">BSIT Student &middot; Bukidnon State University</p>
+      <p class="about-bio">I’m from Don Carlos, Bukidnon, 19 years old, and a third year student.</p>
+
+      <h2 class="about-subhead">My Hobbies</h2>
+      <div class="hobbies">
+        <span class="hobby-item">♟️ Playing Chess</span>
+        <span class="hobby-item">🏀 Basketball</span>
+        <span class="hobby-item">🥋 Karate</span>
+        <span class="hobby-item">🥾 Hiking</span>
+        <span class="hobby-item">🏃 Running</span>
       </div>
-      <div class="profile-info">
-        <h1>Mhyles Gabb Tagarda Aguilar</h1>
-        <h3>BSIT student</h3>
-        <p>
-          I’m from Don Carlos Bukidnon, 19 years old, and a third year student.
-        </p>
-        
-        <h2>My Hobbies</h2>
-        <div class="hobbies">
-          <span class="hobby-item">♟️ Playing Chess</span>
-          <span class="hobby-item">🏀 Basketball</span>
-          <span class="hobby-item">🥋 Karate</span>
-          <span class="hobby-item">🥾 Hiking</span>
-          <span class="hobby-item">🏃 Running</span>
-        </div>
-        
-        <div class="social-icons">
-          <a href="https://www.facebook.com/share/1AMDVdaagG/
-" target="_blank">
-            <img src="meta.svg" alt="Facebook" />
-          </a>
-          <a href="https://www.instagram.com/mhylesgabbaguilar?igsh=MWk3MGs1bTZ1Mm1sYw==" target="_blank">
-            <img src="instagram.svg" alt="Instagram" />
-          </a>
-        </div>
-      </div>
+
+      <ul class="mono-links">
+        <li><a href="https://www.facebook.com/share/1AMDVdaagG/" target="_blank" rel="noopener">Facebook</a></li>
+        <li><a href="https://www.instagram.com/mhylesgabbaguilar?igsh=MWk3MGs1bTZ1Mm1sYw==" target="_blank" rel="noopener">Instagram</a></li>
+      </ul>
     </div>
   </section>
 
   <!-- Education Timeline Section -->
   <section class="education-section" data-aos="fade-up">
-    <div class="timeline-container">
-      <h2>My Education Journey</h2>
+    <div class="section-inner">
+      <span class="eyebrow">Education</span>
+      <h2 class="display-title section-title">My Education Journey</h2>
       <div class="timeline">
-        <div class="timeline-item" data-aos="flip-left">
+        <div class="timeline-item" data-aos="fade-up">
           <div class="timeline-marker">📚</div>
-          <div class="timeline-content">
+          <div class="timeline-content card">
+            <p class="year">2017–2023</p>
             <h3>High School</h3>
-            <p class="year">2017-2023</p>
             <p>Completed my secondary education and discovered my passion for technology and information systems.</p>
           </div>
         </div>
 
-        <div class="timeline-item" data-aos="flip-left" data-aos-delay="100">
+        <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
           <div class="timeline-marker">🎓</div>
-          <div class="timeline-content">
+          <div class="timeline-content card">
+            <p class="year">2023–present</p>
             <h3>Bachelor of Science in Information Technology (BSIT)</h3>
-            <p class="year">2023-present</p>
             <p>Currently pursuing my degree at Bukidnon State University, focusing on web development and software engineering. Third year student specializing in full-stack development.</p>
           </div>
         </div>
 
-        <div class="timeline-item" data-aos="flip-left" data-aos-delay="200">
+        <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
           <div class="timeline-marker">🚀</div>
-          <div class="timeline-content">
-            <h3>Future Goals</h3>
+          <div class="timeline-content card">
             <p class="year">Post-Graduation</p>
+            <h3>Future Goals</h3>
             <p>I aspire to become a full-stack web developer and contribute to innovative tech solutions that make a positive impact in society.</p>
           </div>
         </div>
@@ -95,41 +100,42 @@
 
   <!-- Hobbies to Skills Mapping -->
   <section class="hobbies-meaning" data-aos="fade-up">
-    <div class="hobbies-container">
-      <h2>How My Hobbies Shape My Skills</h2>
+    <div class="section-inner">
+      <span class="eyebrow">Beyond the screen</span>
+      <h2 class="display-title section-title">How My Hobbies Shape My Skills</h2>
       <div class="hobbies-grid">
-        <div class="hobby-card" data-aos="zoom-in">
+        <div class="hobby-card card" data-aos="zoom-in">
           <div class="hobby-icon">♟️</div>
           <h3>Chess</h3>
-          <p><strong>Translates to:</strong> Strategic Thinking & Problem Solving</p>
+          <p class="translates">Strategic Thinking &amp; Problem Solving</p>
           <p>Chess teaches me to think multiple steps ahead and analyze different solutions before committing to code.</p>
         </div>
 
-        <div class="hobby-card" data-aos="zoom-in" data-aos-delay="100">
+        <div class="hobby-card card" data-aos="zoom-in" data-aos-delay="100">
           <div class="hobby-icon">🏀</div>
           <h3>Basketball</h3>
-          <p><strong>Translates to:</strong> Teamwork & Communication</p>
+          <p class="translates">Teamwork &amp; Communication</p>
           <p>Playing as a team taught me the importance of collaboration and clear communication in group projects.</p>
         </div>
 
-        <div class="hobby-card" data-aos="zoom-in" data-aos-delay="200">
+        <div class="hobby-card card" data-aos="zoom-in" data-aos-delay="200">
           <div class="hobby-icon">🥋</div>
           <h3>Karate</h3>
-          <p><strong>Translates to:</strong> Discipline & Focus</p>
+          <p class="translates">Discipline &amp; Focus</p>
           <p>Martial arts instilled in me the discipline needed for consistent learning and mastering complex technical skills.</p>
         </div>
 
-        <div class="hobby-card" data-aos="zoom-in" data-aos-delay="300">
+        <div class="hobby-card card" data-aos="zoom-in" data-aos-delay="300">
           <div class="hobby-icon">🥾</div>
           <h3>Hiking</h3>
-          <p><strong>Translates to:</strong> Persistence & Patience</p>
+          <p class="translates">Persistence &amp; Patience</p>
           <p>Long hikes taught me that reaching goals requires consistent effort, just like debugging and learning new technologies.</p>
         </div>
 
-        <div class="hobby-card" data-aos="zoom-in" data-aos-delay="400">
+        <div class="hobby-card card" data-aos="zoom-in" data-aos-delay="400">
           <div class="hobby-icon">🏃</div>
           <h3>Running</h3>
-          <p><strong>Translates to:</strong> Optimization & Efficiency</p>
+          <p class="translates">Optimization &amp; Efficiency</p>
           <p>Running teaches me to optimize my efforts for maximum performance, a principle I apply to clean and efficient code.</p>
         </div>
       </div>
@@ -141,7 +147,7 @@
     // Initialize AOS
     AOS.init({
       duration: 1000,
-      once: false,
+      once: true,
       offset: 100
     });
 
@@ -149,25 +155,16 @@
     const themeToggle = document.getElementById('themeToggle');
     const body = document.body;
 
-    // Check for saved theme preference or default to 'light-mode'
-    const currentTheme = localStorage.getItem('theme') || 'light-mode';
-    body.classList.add(currentTheme);
+    // Check for saved theme preference or default to 'dark-mode'
+    const currentTheme = localStorage.getItem('theme') || 'dark-mode';
     updateThemeIcon(currentTheme);
 
     themeToggle.addEventListener('click', () => {
-      const isLightMode = body.classList.contains('light-mode');
-      
-      if (isLightMode) {
-        body.classList.remove('light-mode');
-        body.classList.add('dark-mode');
-        localStorage.setItem('theme', 'dark-mode');
-        updateThemeIcon('dark-mode');
-      } else {
-        body.classList.remove('dark-mode');
-        body.classList.add('light-mode');
-        localStorage.setItem('theme', 'light-mode');
-        updateThemeIcon('light-mode');
-      }
+      const next = body.classList.contains('light-mode') ? 'dark-mode' : 'light-mode';
+      body.classList.remove('light-mode', 'dark-mode');
+      body.classList.add(next);
+      localStorage.setItem('theme', next);
+      updateThemeIcon(next);
     });
 
     function updateThemeIcon(theme) {
@@ -175,7 +172,7 @@
     }
 
     const path = window.location.pathname;
-    if (path.includes('index') || path === '/') {
+    if (path.includes('index') || path.endsWith('/')) {
       document.querySelector('.dashboard')?.classList.add('active');
     } else if (path.includes('about')) {
       document.querySelector('.about-link')?.classList.add('active');

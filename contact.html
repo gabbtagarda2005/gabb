@@ -8,12 +8,23 @@
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
-  <link rel="stylesheet" href="contact.css?v=1.0" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&family=Space+Mono&display=swap" />
+  <link rel="stylesheet" href="site.css?v=1.0" />
+  <link rel="stylesheet" href="contact.css?v=2.0" />
 </head>
-<body class="light-mode">
-  <header>
-    <div class="logo">Gabb</div>
+<body>
+  <script>document.body.classList.add(localStorage.getItem('theme') || 'dark-mode');</script>
+  <div class="page-bg" aria-hidden="true">
+    <span class="frame frame-1"></span>
+    <span class="frame frame-2"></span>
+    <span class="glow glow-1"></span>
+    <span class="glow glow-2"></span>
+  </div>
+
+  <header class="site-header">
+    <a href="index.html" class="logo">Gabb</a>
     <nav class="navbar">
       <a href="index.html" class="dashboard">Home</a>
       <a href="about.html" class="about-link">About</a>
@@ -24,61 +35,56 @@
     </button>
   </header>
 
-  <section class="contact-section" data-aos="fade-up">
-    <div class="contact-container">
-      <h2>Let's Get In Touch</h2>
-      <p class="subtitle">If you have something to talk, feel free to message me!</p>
-
-      <!-- Success Toast Notification -->
-      <div class="toast" id="successToast">
-        <span class="toast-icon">✓</span>
-        <span class="toast-message">Message sent successfully! I'll get back to you soon.</span>
-      </div>
-
-      <!-- Contact Form -->
-      <form class="contact-form" id="contactForm" action="https://formspree.io/f/xldbyekd" method="POST">
-        <div class="input-group">
-          <input type="text" name="name" placeholder="Your Name" required />
-          <input type="email" name="email" placeholder="Your Email" required />
-        </div>
-        <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
-        <button type="submit" class="btn-submit">Send Message</button>
-      </form>
+  <section class="contact-section">
+    <div class="contact-intro">
+      <span class="eyebrow">Contact</span>
+      <h1 class="display-title contact-title">Let's<br />Talk</h1>
+      <p class="subtitle">If you have something to talk about, feel free to message me!</p>
+      <ul class="mono-links">
+        <li><a href="https://www.facebook.com/share/1AMDVdaagG/" target="_blank" rel="noopener">Facebook</a></li>
+        <li><a href="https://www.instagram.com/mhylesgabbaguilar?igsh=MWk3MGs1bTZ1Mm1sYw==" target="_blank" rel="noopener">Instagram</a></li>
+      </ul>
     </div>
+
+    <!-- Contact Form -->
+    <form class="contact-form card" id="contactForm" action="https://formspree.io/f/xldbyekd" method="POST">
+      <label class="field">
+        <span>Name</span>
+        <input type="text" name="name" placeholder="Your name" required />
+      </label>
+      <label class="field">
+        <span>Email</span>
+        <input type="email" name="email" placeholder="you@example.com" required />
+      </label>
+      <label class="field">
+        <span>Message</span>
+        <textarea name="message" rows="6" placeholder="What's on your mind?" required></textarea>
+      </label>
+      <button type="submit" class="btn-primary btn-submit">Send Message</button>
+    </form>
   </section>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-  <script>
-    // Initialize AOS
-    AOS.init({
-      duration: 1000,
-      once: false,
-      offset: 100
-    });
+  <!-- Success Toast Notification -->
+  <div class="toast" id="successToast">
+    <span class="toast-icon">✓</span>
+    <span class="toast-message">Message sent successfully! I'll get back to you soon.</span>
+  </div>
 
+  <script>
     // Theme Toggle
     const themeToggle = document.getElementById('themeToggle');
     const body = document.body;
 
-    // Check for saved theme preference or default to 'light-mode'
-    const currentTheme = localStorage.getItem('theme') || 'light-mode';
-    body.classList.add(currentTheme);
+    // Check for saved theme preference or default to 'dark-mode'
+    const currentTheme = localStorage.getItem('theme') || 'dark-mode';
     updateThemeIcon(currentTheme);
 
     themeToggle.addEventListener('click', () => {
-      const isLightMode = body.classList.contains('light-mode');
-      
-      if (isLightMode) {
-        body.classList.remove('light-mode');
-        body.classList.add('dark-mode');
-        localStorage.setItem('theme', 'dark-mode');
-        updateThemeIcon('dark-mode');
-      } else {
-        body.classList.remove('dark-mode');
-        body.classList.add('light-mode');
-        localStorage.setItem('theme', 'light-mode');
-        updateThemeIcon('light-mode');
-      }
+      const next = body.classList.contains('light-mode') ? 'dark-mode' : 'light-mode';
+      body.classList.remove('light-mode', 'dark-mode');
+      body.classList.add(next);
+      localStorage.setItem('theme', next);
+      updateThemeIcon(next);
     });
 
     function updateThemeIcon(theme) {
@@ -101,7 +107,7 @@
     });
 
     const path = window.location.pathname;
-    if (path.includes('index') || path === '/') {
+    if (path.includes('index') || path.endsWith('/')) {
       document.querySelector('.dashboard')?.classList.add('active');
     } else if (path.includes('about')) {
       document.querySelector('.about-link')?.classList.add('active');

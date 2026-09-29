@@ -17,7 +17,8 @@
   <!-- DevIcons for Tech Stack -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css" />
 </head>
-<body class="light-mode">
+<body>
+  <script>document.body.classList.add(localStorage.getItem('theme') || 'dark-mode');</script>
   <section class="hero">
     <!-- Background: dark gradient, purple glow, rotated frames -->
     <div class="hero-bg" aria-hidden="true">
@@ -164,28 +165,18 @@
 
     // Theme Toggle
     const themeToggle = document.getElementById('themeToggle');
-    const htmlElement = document.documentElement;
     const body = document.body;
 
-    // Check for saved theme preference or default to 'light-mode'
-    const currentTheme = localStorage.getItem('theme') || 'light-mode';
-    body.classList.add(currentTheme);
+    // Check for saved theme preference or default to 'dark-mode'
+    const currentTheme = localStorage.getItem('theme') || 'dark-mode';
     updateThemeIcon(currentTheme);
 
     themeToggle.addEventListener('click', () => {
-      const isLightMode = body.classList.contains('light-mode');
-      
-      if (isLightMode) {
-        body.classList.remove('light-mode');
-        body.classList.add('dark-mode');
-        localStorage.setItem('theme', 'dark-mode');
-        updateThemeIcon('dark-mode');
-      } else {
-        body.classList.remove('dark-mode');
-        body.classList.add('light-mode');
-        localStorage.setItem('theme', 'light-mode');
-        updateThemeIcon('light-mode');
-      }
+      const next = body.classList.contains('light-mode') ? 'dark-mode' : 'light-mode';
+      body.classList.remove('light-mode', 'dark-mode');
+      body.classList.add(next);
+      localStorage.setItem('theme', next);
+      updateThemeIcon(next);
     });
 
     function updateThemeIcon(theme) {
@@ -193,7 +184,7 @@
     }
 
     const path = window.location.pathname;
-    if (path.includes('index') || path === '/') {
+    if (path.includes('index') || path.endsWith('/')) {
       document.querySelector('.dashboard')?.classList.add('active');
     } else if (path.includes('about')) {
       document.querySelector('.about-link')?.classList.add('active');
