@@ -8,48 +8,60 @@
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
-  <link rel="stylesheet" href="style.css?v=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&family=Space+Mono&display=swap" />
+  <link rel="stylesheet" href="style.css?v=2.0" />
   <!-- AOS Library for Scroll Animations -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
   <!-- DevIcons for Tech Stack -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css" />
 </head>
 <body class="light-mode">
-  <header>
-    <div class="logo">Gabb</div>
-    <nav class="navbar">
-      <a href="index.html" class="dashboard">Home</a>
-      <a href="about.html" class="about-link">About</a>
-      <a href="contact.html" class="contact-link">Contact</a>
-    </nav>
-    <button class="theme-toggle" id="themeToggle" title="Toggle dark/light mode">
-      <span class="theme-icon">🌙</span>
-    </button>
-  </header>
-
   <section class="hero">
-    <div class="hero-text">
-      <h1>Hi, I'm <span>Mhyles Gabb Aguilar</span></h1>
-      <h2>Student at Bukidnon State University</h2>
-      <p>
-people live their lives bound by what they accept as correct and true, and that's how they define reality.
-      </p>
-      <div class="buttons">
-        <a href="contact.html" class="btn-outline">Let's Talk</a>
-        <a href="https://lakmhyles-journeys.lovable.app" class="btn-primary" target="_blank" rel="noopener">Beyond the Horizon</a>
-      </div>
-      <div class="social-icons">
-        <a href="https://www.facebook.com/share/1AMDVdaagG/
-" target="_blank">
-          <img src="meta.svg" alt="Facebook" />
-        </a>
-        <a href="https://www.instagram.com/mhylesgabbaguilar?igsh=MWk3MGs1bTZ1Mm1sYw==" target="_blank">
-          <img src="instagram.svg" alt="Instagram" />
-        </a>
-      </div>
+    <!-- Background: dark gradient, purple glow, rotated frames -->
+    <div class="hero-bg" aria-hidden="true">
+      <span class="frame frame-1"></span>
+      <span class="frame frame-2"></span>
+      <span class="glow glow-1"></span>
+      <span class="glow glow-2"></span>
     </div>
+
+    <header class="hero-header">
+      <div class="logo">Gabb</div>
+      <nav class="navbar">
+        <a href="index.html" class="dashboard">Home</a>
+        <a href="about.html" class="about-link">About</a>
+        <a href="contact.html" class="contact-link">Contact</a>
+      </nav>
+      <button class="theme-toggle" id="themeToggle" title="Toggle dark/light mode">
+        <span class="theme-icon">🌙</span>
+      </button>
+    </header>
+
+    <span class="side-label" aria-hidden="true">Portfolio</span>
+
     <div class="hero-image">
-      <img src="me1.jpg" alt="Mhyles Gabb Aguilar" />
+      <img src="me.jpg" alt="Mhyles Gabb Aguilar" />
+    </div>
+
+    <ul class="side-socials">
+      <li><a href="https://www.facebook.com/share/1AMDVdaagG/" target="_blank" rel="noopener" aria-label="Facebook">FB</a></li>
+      <li><a href="https://www.instagram.com/mhylesgabbaguilar?igsh=MWk3MGs1bTZ1Mm1sYw==" target="_blank" rel="noopener" aria-label="Instagram">IG</a></li>
+    </ul>
+
+    <div class="hero-bottom">
+      <div class="hero-meta">
+        <p class="hero-role">Hi, I'm Mhyles &mdash; Student at Bukidnon State University</p>
+        <div class="hero-side">
+          <p class="hero-quote">People live their lives bound by what they accept as correct and true, and that's how they define reality.</p>
+          <div class="buttons">
+            <a href="https://lakmhyles-journeys.lovable.app" class="btn-primary" target="_blank" rel="noopener">Beyond the Horizon</a>
+            <a href="contact.html" class="btn-outline">Let's Talk</a>
+          </div>
+        </div>
+      </div>
+      <h1 class="hero-name">GABB AGUILAR</h1>
     </div>
   </section>
 
@@ -130,6 +142,19 @@ people live their lives bound by what they accept as correct and true, and that'
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script>
+    // Scale the hero name so it spans the full width, edge to edge
+    const heroName = document.querySelector('.hero-name');
+    function fitHeroName() {
+      if (!heroName) return;
+      const available = heroName.parentElement.clientWidth -
+        parseFloat(getComputedStyle(heroName.parentElement).paddingLeft) * 2;
+      heroName.style.fontSize = '100px';
+      heroName.style.fontSize = (100 * available / heroName.scrollWidth) + 'px';
+    }
+    fitHeroName();
+    window.addEventListener('resize', fitHeroName);
+    document.fonts && document.fonts.ready.then(fitHeroName);
+
     // Initialize AOS
     AOS.init({
       duration: 1000,
