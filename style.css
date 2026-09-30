@@ -735,7 +735,7 @@ a {
   position: absolute;
   z-index: 1;
   left: 50%;
-  bottom: 0;
+  bottom: -9vh;
   height: 88vh;
   aspect-ratio: 620 / 755;
   transform: translateX(-50%);
@@ -749,7 +749,7 @@ a {
   height: 100%;
   object-fit: contain;
   object-position: bottom center;
-  filter: contrast(1.05) brightness(0.9) drop-shadow(0 0 48px rgba(139, 92, 246, 0.3));
+  filter: drop-shadow(0 0 48px rgba(139, 92, 246, 0.3));
 }
 
 /* Bottom block: role, quote, buttons, huge name */
@@ -869,6 +869,7 @@ a {
 
   .hero-image {
     height: 76vh;
+    bottom: -6vh;
   }
 
   .hero-meta {
