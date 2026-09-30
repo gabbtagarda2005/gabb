@@ -920,6 +920,27 @@ a {
   }
 }
 
+
+/* Tall, narrow screens (phones): the photo spans the full width, so only top/bottom need fading */
+@media (max-aspect-ratio: 3/4) {
+  .hero-ambient {
+    display: none;
+  }
+
+  .hero-image {
+    top: 0;
+    height: 100%;
+    width: 100%;
+    aspect-ratio: auto;
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 14%, #000 72%, transparent 100%);
+            mask-image: linear-gradient(to bottom, transparent 0%, #000 14%, #000 72%, transparent 100%);
+  }
+
+  .hero-image img {
+    object-position: 64% 38%;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .frame,
   .hero-image,
