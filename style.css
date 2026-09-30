@@ -737,10 +737,10 @@ a {
   left: 50%;
   top: 3vh;
   height: 118vh;
-  aspect-ratio: 620 / 755;
+  aspect-ratio: 172 / 362;
   transform: translateX(-50%);
-  -webkit-mask-image: radial-gradient(ellipse 58% 62% at 50% 38%, #000 55%, transparent 100%);
-          mask-image: radial-gradient(ellipse 58% 62% at 50% 38%, #000 55%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, #000 75%, transparent 100%);
+          mask-image: linear-gradient(to bottom, #000 75%, transparent 100%);
   animation: hero-fade 1.4s ease both;
 }
 
@@ -757,8 +757,8 @@ a {
   content: '';
   position: absolute;
   inset: 0;
-  -webkit-mask: url(me-cutout.png) top center / contain no-repeat;
-          mask: url(me-cutout.png) top center / contain no-repeat;
+  -webkit-mask: url(hero-portrait.png) top center / contain no-repeat;
+          mask: url(hero-portrait.png) top center / contain no-repeat;
   background:
     linear-gradient(to top, var(--hero-bg) 30%, transparent 60%),
     rgba(76, 29, 149, 0.22);
