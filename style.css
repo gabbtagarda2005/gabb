@@ -730,38 +730,36 @@ a {
   color: var(--hero-accent);
 }
 
-/* Portrait: large, blended into the background */
+/* Portrait: large silhouette photo, cropped so the subject is centered, blended into the background */
 .hero-image {
   position: absolute;
   z-index: 1;
   left: 50%;
-  top: 3vh;
-  height: 118vh;
-  aspect-ratio: 172 / 362;
+  top: -12vh;
+  height: 112vh;
+  aspect-ratio: 0.54;
   transform: translateX(-50%);
-  -webkit-mask-image: linear-gradient(to bottom, #000 75%, transparent 100%);
-          mask-image: linear-gradient(to bottom, #000 75%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 45%, transparent 100%);
+          mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 45%, transparent 100%);
   animation: hero-fade 1.4s ease both;
 }
 
 .hero-image img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  object-position: top center;
-  filter: grayscale(0.3) contrast(1.08) brightness(0.85);
+  object-fit: cover;
+  object-position: 100% 50%;
+  filter: contrast(1.1) brightness(0.72) saturate(0.8);
 }
 
-/* Light purple tint + dark fade, clipped to the cutout so the background stays clean */
+/* Purple tint + dark fade so the sunset sits in the scene */
 .hero-image::after {
   content: '';
   position: absolute;
   inset: 0;
-  -webkit-mask: url(hero-portrait.png) top center / contain no-repeat;
-          mask: url(hero-portrait.png) top center / contain no-repeat;
   background:
-    linear-gradient(to top, var(--hero-bg) 30%, transparent 60%),
-    rgba(76, 29, 149, 0.22);
+    linear-gradient(to top, var(--hero-bg) 12%, transparent 45%),
+    rgba(76, 29, 149, 0.4);
   mix-blend-mode: multiply;
 }
 
@@ -881,8 +879,8 @@ a {
   }
 
   .hero-image {
-    top: 8vh;
-    height: 92vh;
+    top: -4vh;
+    height: 100vh;
   }
 
   .hero-meta {
