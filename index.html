@@ -10,7 +10,7 @@
   <meta http-equiv="Expires" content="0" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&family=Space+Mono&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&family=Space+Mono&family=Instrument+Serif:ital@0;1&display=swap" />
   <link rel="stylesheet" href="style.css?v=2.0" />
   <!-- AOS Library for Scroll Animations -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
@@ -101,39 +101,102 @@
   </section>
 
   <!-- Projects Section -->
-  <section class="projects" data-aos="fade-up">
-    <div class="container">
-      <h2>Featured Projects</h2>
-      <p class="subtitle">A showcase of my work</p>
-      <div class="projects-grid">
-        <div class="project-card" data-aos="flip-left">
-          <div class="project-image">
-            <img src="me1.jpg" alt="Portfolio Project" />
-          </div>
-          <div class="project-info">
-            <h3>Personal Portfolio</h3>
-            <p>An elegant dark-themed portfolio website showcasing my skills and projects. Built with HTML, CSS, and JavaScript with glassmorphism effects.</p>
-            <div class="project-links">
-              <a href="https://github.com/gabbtagarda2005/gabb" target="_blank" class="link-btn">GitHub</a>
-              <a href="#" class="link-btn">Live Demo</a>
-            </div>
-          </div>
+  <section class="projects" id="work">
+    <div class="work-wrap">
+      <header class="work-intro" data-aos="fade-up">
+        <span class="work-eyebrow">Selected Work</span>
+        <h2 class="work-heading">Featured<br />Projects</h2>
+        <div class="work-intro-side">
+          <p class="work-subtitle">A showcase of my work</p>
+          <span class="work-count">02 Projects</span>
+        </div>
+      </header>
+
+      <!-- Project 01 -->
+      <article class="work" data-aos="fade-up">
+        <span class="work-number" aria-hidden="true">01</span>
+
+        <div class="work-head">
+          <span class="work-index">01 / 02</span>
+          <p class="work-category">Web Design / Front-End Development</p>
+          <h3 class="work-title">Personal<br />Portfolio</h3>
         </div>
 
-        <div class="project-card" data-aos="flip-left" data-aos-delay="100">
-          <div class="project-image">
-            <img src="me.jpg" alt="Project 2" />
-          </div>
-          <div class="project-info">
-            <h3>Upcoming Project</h3>
-            <p>Building innovative solutions to solve real-world problems. Stay tuned for more exciting projects!</p>
-            <div class="project-links">
-              <a href="#" class="link-btn disabled">GitHub</a>
-              <a href="#" class="link-btn disabled">Live Demo</a>
-            </div>
+        <a class="work-media" href="https://gabbtagarda2005.github.io/gabb/index.html" target="_blank" rel="noopener" aria-label="View Personal Portfolio live">
+          <img src="me1.jpg" alt="Personal Portfolio project preview" loading="lazy" />
+          <span class="work-view">View Project ↗</span>
+        </a>
+
+        <div class="work-body">
+          <p class="work-desc">An elegant dark-themed personal portfolio website designed to showcase my skills, projects, and experience through a modern and responsive interface.</p>
+          <ul class="work-tech">
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+          </ul>
+          <div class="work-links">
+            <a href="https://github.com/gabbtagarda2005/gabb" target="_blank" rel="noopener">GitHub ↗</a>
+            <a href="https://gabbtagarda2005.github.io/gabb/index.html" target="_blank" rel="noopener">Live Demo ↗</a>
           </div>
         </div>
-      </div>
+      </article>
+
+      <!-- Project 02 -->
+      <article class="work work--reverse" data-aos="fade-up">
+        <span class="work-number" aria-hidden="true">02</span>
+
+        <div class="work-head">
+          <span class="work-index">02 / 02</span>
+          <p class="work-category">Full-Stack Development / Transportation Technology</p>
+          <h3 class="work-title">Bukidnon<br />Transit</h3>
+        </div>
+
+        <!-- No screenshot available yet: abstract route graphic stands in -->
+        <a class="work-media work-media--graphic" href="https://github.com/gabbtagarda2005/Capstone_Project" target="_blank" rel="noopener" aria-label="View Bukidnon Transit on GitHub">
+          <svg class="route-art" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <defs>
+              <pattern id="route-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                <path d="M40 0H0V40" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1" />
+              </pattern>
+              <radialGradient id="route-glow" cx="50%" cy="50%" r="60%">
+                <stop offset="0%" stop-color="rgba(109,40,217,0.35)" />
+                <stop offset="100%" stop-color="rgba(109,40,217,0)" />
+              </radialGradient>
+            </defs>
+            <rect width="800" height="500" fill="#0b0912" />
+            <rect width="800" height="500" fill="url(#route-grid)" />
+            <rect width="800" height="500" fill="url(#route-glow)" />
+            <path id="route-path" class="route-line" d="M-20 400 C 120 380, 160 250, 280 260 S 420 380, 520 300 S 640 120, 820 110" />
+            <circle class="route-stop" cx="280" cy="260" r="6" />
+            <circle class="route-stop" cx="520" cy="300" r="6" />
+            <circle class="route-stop" cx="690" cy="140" r="6" />
+            <circle class="route-bus" r="9">
+              <animateMotion dur="9s" repeatCount="indefinite" rotate="auto">
+                <mpath href="#route-path" />
+              </animateMotion>
+            </circle>
+          </svg>
+          <span class="route-tag"><i></i> Real-time tracking</span>
+          <span class="work-view">View Project ↗</span>
+        </a>
+
+        <div class="work-body">
+          <p class="work-desc">A real-time bus tracking and passenger information system designed to improve public transportation monitoring, route visibility, and commuter connectivity in Bukidnon.</p>
+          <ul class="work-tech">
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+            <li>Node.js</li>
+            <li>MongoDB</li>
+            <li>Socket.IO</li>
+            <li>Firebase</li>
+          </ul>
+          <div class="work-links">
+            <a href="https://github.com/gabbtagarda2005/Capstone_Project" target="_blank" rel="noopener">GitHub ↗</a>
+            <span class="work-link-pending" title="Live demo link not added yet">Case Study — Soon</span>
+          </div>
+        </div>
+      </article>
     </div>
   </section>
 
