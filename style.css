@@ -730,17 +730,17 @@ a {
   color: var(--hero-accent);
 }
 
-/* Portrait: transparent cutout standing on the bottom edge, behind the name */
+/* Portrait: large, blended into the background */
 .hero-image {
   position: absolute;
   z-index: 1;
   left: 50%;
-  bottom: -9vh;
-  height: 88vh;
+  top: 3vh;
+  height: 118vh;
   aspect-ratio: 620 / 755;
   transform: translateX(-50%);
-  -webkit-mask-image: linear-gradient(to bottom, #000 72%, transparent 100%);
-          mask-image: linear-gradient(to bottom, #000 72%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 58% 62% at 50% 38%, #000 55%, transparent 100%);
+          mask-image: radial-gradient(ellipse 58% 62% at 50% 38%, #000 55%, transparent 100%);
   animation: hero-fade 1.4s ease both;
 }
 
@@ -748,8 +748,21 @@ a {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  object-position: bottom center;
-  filter: drop-shadow(0 0 48px rgba(139, 92, 246, 0.3));
+  object-position: top center;
+  filter: grayscale(0.3) contrast(1.08) brightness(0.85);
+}
+
+/* Light purple tint + dark fade, clipped to the cutout so the background stays clean */
+.hero-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  -webkit-mask: url(me-cutout.png) top center / contain no-repeat;
+          mask: url(me-cutout.png) top center / contain no-repeat;
+  background:
+    linear-gradient(to top, var(--hero-bg) 30%, transparent 60%),
+    rgba(76, 29, 149, 0.22);
+  mix-blend-mode: multiply;
 }
 
 /* Bottom block: role, quote, buttons, huge name */
@@ -868,8 +881,8 @@ a {
   }
 
   .hero-image {
-    height: 76vh;
-    bottom: -6vh;
+    top: 8vh;
+    height: 92vh;
   }
 
   .hero-meta {
