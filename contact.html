@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&family=Space+Mono&display=swap" />
   <link rel="stylesheet" href="site.css?v=2.0" />
-  <link rel="stylesheet" href="contact.css?v=3.0" />
+  <link rel="stylesheet" href="contact.css?v=3.1" />
 </head>
 <body class="dark-mode">
   <div class="page-bg" aria-hidden="true">
@@ -45,12 +45,12 @@
     <!-- Contact Form -->
     <form class="contact-form card" id="contactForm" action="https://formspree.io/f/xldbyekd" method="POST">
       <label class="field">
-        <span>Name</span>
-        <input type="text" name="name" placeholder="Your name" required />
+        <span>Name <small class="optional">(optional)</small></span>
+        <input type="text" name="name" placeholder="Your name" />
       </label>
       <label class="field">
-        <span>Email</span>
-        <input type="email" name="email" placeholder="you@example.com" required />
+        <span>Email <small class="optional">(optional)</small></span>
+        <input type="email" name="email" placeholder="you@example.com" />
       </label>
       <label class="field">
         <span>Message</span>
@@ -71,7 +71,14 @@
     const contactForm = document.getElementById('contactForm');
     const successToast = document.getElementById('successToast');
 
+    const optionalFields = contactForm.querySelectorAll('input[name="name"], input[name="email"]');
+
     contactForm.addEventListener('submit', function(e) {
+      // Leave out Name / Email when they're empty, so a message can be sent anonymously
+      optionalFields.forEach(field => {
+        if (!field.value.trim()) field.disabled = true;
+      });
+
       // Formspree will handle the submission
       // Show toast after submission
       setTimeout(() => {
@@ -80,6 +87,11 @@
           successToast.classList.remove('show');
         }, 4000);
       }, 500);
+    });
+
+    // Re-enable the optional fields if the visitor comes back to this page
+    window.addEventListener('pageshow', () => {
+      optionalFields.forEach(field => { field.disabled = false; });
     });
 
     const path = window.location.pathname;
