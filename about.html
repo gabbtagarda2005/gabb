@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&family=Space+Mono&display=swap" />
   <link rel="stylesheet" href="site.css?v=2.0" />
-  <link rel="stylesheet" href="about.css?v=4.0" />
+  <link rel="stylesheet" href="about.css?v=5.0" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
 </head>
 <body class="dark-mode">
@@ -58,6 +58,57 @@
     </div>
   </section>
 
+  <!-- Achievements & Certifications -->
+  <section class="achievements-section" data-aos="fade-up">
+    <div class="section-inner">
+      <span class="eyebrow">Recognition</span>
+      <h2 class="display-title section-title">Achievements &amp; Certifications</h2>
+
+      <!-- Featured achievement -->
+      <article class="award card" data-aos="fade-up">
+        <div class="award-photos">
+          <figure class="award-photo award-photo--main">
+            <img src="promptpulse-team.jpg" alt="Mhyles and teammates holding their PromptPulse medals and 1st Runner-Up plaque" loading="lazy" />
+          </figure>
+          <figure class="award-photo award-photo--side">
+            <img src="promptpulse-award.jpg" alt="PromptPulse 1st Runner-Up plaque of recognition and medal from DEVCON Bukidnon" loading="lazy" />
+          </figure>
+        </div>
+        <div class="award-body">
+          <p class="award-badge">🏆 1st Runner-Up</p>
+          <h3>PromptPulse: AI Engineering</h3>
+          <p class="award-meta">BUKCODENON 2: Tech Arena &middot; DEVCON Bukidnon</p>
+          <p>Our team placed 1st Runner-Up in the PromptPulse AI Engineering challenge at BUKCODENON 2: Tech Arena, an inter-campus technology competition organized by DEVCON Bukidnon and held at Northern Bukidnon State College (NBSC).</p>
+          <p class="award-date">September 24, 2026 &middot; NBSC, Bukidnon</p>
+        </div>
+      </article>
+
+      <!-- Certifications -->
+      <h3 class="cert-heading">Certifications</h3>
+      <div class="cert-grid">
+        <a class="cert card" href="certificates/ccna-switching-routing-wireless.pdf" target="_blank" rel="noopener" data-aos="fade-up">
+          <span class="cert-issuer">Cisco Networking Academy</span>
+          <h4>CCNA: Switching, Routing, and Wireless Essentials</h4>
+          <p>Offered by Bukidnon State University through the Cisco Networking Academy program.</p>
+          <span class="cert-footer">
+            <span class="cert-date">Completed Dec 23, 2025</span>
+            <span class="cert-view">View certificate ↗</span>
+          </span>
+        </a>
+
+        <a class="cert card" href="certificates/ccna-introduction-to-networks.pdf" target="_blank" rel="noopener" data-aos="fade-up" data-aos-delay="100">
+          <span class="cert-issuer">Cisco Networking Academy</span>
+          <h4>CCNA: Introduction to Networks</h4>
+          <p>Offered by Bukidnon State University through the Cisco Networking Academy program.</p>
+          <span class="cert-footer">
+            <span class="cert-date">Completed May 16, 2025</span>
+            <span class="cert-view">View certificate ↗</span>
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <!-- Education Timeline Section -->
   <section class="education-section" data-aos="fade-up">
     <div class="section-inner">
@@ -99,40 +150,48 @@
     <div class="section-inner">
       <span class="eyebrow">Beyond the screen</span>
       <h2 class="display-title section-title">How My Hobbies Shape My Skills</h2>
-      <div class="hobbies-grid">
-        <div class="hobby-card card" data-aos="zoom-in">
-          <div class="hobby-icon">♟️</div>
-          <h3>Chess</h3>
-          <p class="translates">Strategic Thinking &amp; Problem Solving</p>
-          <p>Chess teaches me to think multiple steps ahead and analyze different solutions before committing to code.</p>
+      <div class="carousel" aria-roledescription="carousel" aria-label="Hobbies">
+        <div class="carousel-track" id="hobbyTrack" tabindex="0">
+          <div class="hobby-card card" role="group" aria-roledescription="slide" aria-label="1 of 5">
+            <div class="hobby-icon">♟️</div>
+            <h3>Chess</h3>
+            <p class="translates">Strategic Thinking &amp; Problem Solving</p>
+            <p>Chess teaches me to think multiple steps ahead and analyze different solutions before committing to code.</p>
+          </div>
+
+          <div class="hobby-card card" role="group" aria-roledescription="slide" aria-label="2 of 5">
+            <div class="hobby-icon">🏀</div>
+            <h3>Basketball</h3>
+            <p class="translates">Teamwork &amp; Communication</p>
+            <p>Playing as a team taught me the importance of collaboration and clear communication in group projects.</p>
+          </div>
+
+          <div class="hobby-card card" role="group" aria-roledescription="slide" aria-label="3 of 5">
+            <div class="hobby-icon">🥋</div>
+            <h3>Karate</h3>
+            <p class="translates">Discipline &amp; Focus</p>
+            <p>Martial arts instilled in me the discipline needed for consistent learning and mastering complex technical skills.</p>
+          </div>
+
+          <div class="hobby-card card" role="group" aria-roledescription="slide" aria-label="4 of 5">
+            <div class="hobby-icon">🥾</div>
+            <h3>Hiking</h3>
+            <p class="translates">Persistence &amp; Patience</p>
+            <p>Long hikes taught me that reaching goals requires consistent effort, just like debugging and learning new technologies.</p>
+          </div>
+
+          <div class="hobby-card card" role="group" aria-roledescription="slide" aria-label="5 of 5">
+            <div class="hobby-icon">🏃</div>
+            <h3>Running</h3>
+            <p class="translates">Optimization &amp; Efficiency</p>
+            <p>Running teaches me to optimize my efforts for maximum performance, a principle I apply to clean and efficient code.</p>
+          </div>
         </div>
 
-        <div class="hobby-card card" data-aos="zoom-in" data-aos-delay="100">
-          <div class="hobby-icon">🏀</div>
-          <h3>Basketball</h3>
-          <p class="translates">Teamwork &amp; Communication</p>
-          <p>Playing as a team taught me the importance of collaboration and clear communication in group projects.</p>
-        </div>
-
-        <div class="hobby-card card" data-aos="zoom-in" data-aos-delay="200">
-          <div class="hobby-icon">🥋</div>
-          <h3>Karate</h3>
-          <p class="translates">Discipline &amp; Focus</p>
-          <p>Martial arts instilled in me the discipline needed for consistent learning and mastering complex technical skills.</p>
-        </div>
-
-        <div class="hobby-card card" data-aos="zoom-in" data-aos-delay="300">
-          <div class="hobby-icon">🥾</div>
-          <h3>Hiking</h3>
-          <p class="translates">Persistence &amp; Patience</p>
-          <p>Long hikes taught me that reaching goals requires consistent effort, just like debugging and learning new technologies.</p>
-        </div>
-
-        <div class="hobby-card card" data-aos="zoom-in" data-aos-delay="400">
-          <div class="hobby-icon">🏃</div>
-          <h3>Running</h3>
-          <p class="translates">Optimization &amp; Efficiency</p>
-          <p>Running teaches me to optimize my efforts for maximum performance, a principle I apply to clean and efficient code.</p>
+        <div class="carousel-controls">
+          <button class="carousel-btn" id="hobbyPrev" type="button" aria-label="Previous hobby">←</button>
+          <div class="carousel-dots" id="hobbyDots"></div>
+          <button class="carousel-btn" id="hobbyNext" type="button" aria-label="Next hobby">→</button>
         </div>
       </div>
     </div>
@@ -146,6 +205,78 @@
       once: true,
       offset: 100
     });
+
+    // Hobbies carousel: arrows, dots, swipe (native scroll) and gentle autoplay
+    (function () {
+      const track = document.getElementById('hobbyTrack');
+      const prev = document.getElementById('hobbyPrev');
+      const next = document.getElementById('hobbyNext');
+      const dotsWrap = document.getElementById('hobbyDots');
+      if (!track) return;
+      const slides = Array.from(track.children);
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      const dots = slides.map((_, i) => {
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = 'carousel-dot';
+        dot.setAttribute('aria-label', 'Go to hobby ' + (i + 1));
+        dot.addEventListener('click', () => goTo(i));
+        dotsWrap.appendChild(dot);
+        return dot;
+      });
+
+      function current() {
+        const left = track.scrollLeft;
+        let best = 0, bestDist = Infinity;
+        slides.forEach((s, i) => {
+          const d = Math.abs(s.offsetLeft - track.offsetLeft - left);
+          if (d < bestDist) { bestDist = d; best = i; }
+        });
+        return best;
+      }
+
+      function maxIndex() {
+        // Last index whose slide can still be scrolled to the start
+        const maxScroll = track.scrollWidth - track.clientWidth;
+        for (let i = 0; i < slides.length; i++) {
+          if (slides[i].offsetLeft - track.offsetLeft >= maxScroll - 2) return i;
+        }
+        return slides.length - 1;
+      }
+
+      function goTo(i) {
+        const last = maxIndex();
+        if (i > last) i = 0;
+        if (i < 0) i = last;
+        track.scrollTo({ left: slides[i].offsetLeft - track.offsetLeft, behavior: reduceMotion ? 'auto' : 'smooth' });
+      }
+
+      function update() {
+        const atEnd = track.scrollLeft >= track.scrollWidth - track.clientWidth - 2;
+        const idx = atEnd ? slides.length - 1 : current();
+        dots.forEach((d, i) => d.classList.toggle('is-active', i === idx));
+      }
+
+      prev.addEventListener('click', () => goTo(current() - 1));
+      next.addEventListener('click', () => goTo(current() + 1));
+      track.addEventListener('scroll', () => requestAnimationFrame(update), { passive: true });
+      track.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight') { e.preventDefault(); goTo(current() + 1); }
+        if (e.key === 'ArrowLeft')  { e.preventDefault(); goTo(current() - 1); }
+      });
+      window.addEventListener('resize', update);
+      update();
+
+      // Autoplay, paused while the visitor hovers, touches or focuses the carousel
+      if (!reduceMotion) {
+        let paused = false;
+        const carousel = track.closest('.carousel');
+        ['mouseenter', 'focusin', 'touchstart'].forEach(ev => carousel.addEventListener(ev, () => { paused = true; }, { passive: true }));
+        ['mouseleave', 'focusout'].forEach(ev => carousel.addEventListener(ev, () => { paused = false; }));
+        setInterval(() => { if (!paused && !document.hidden) goTo(current() + 1); }, 4500);
+      }
+    })();
 
     const path = window.location.pathname;
     if (path.includes('index') || path.endsWith('/')) {
