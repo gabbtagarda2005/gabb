@@ -327,6 +327,128 @@
   color: var(--accent-text);
 }
 
+/* Exam credential card — an <article> (not a link) so it can hold the breakdown toggle */
+.status-badge {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 12px;
+  margin-bottom: 14px;
+  border-radius: 999px;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent-text);
+  background: var(--surface-hover);
+  border: 1px solid var(--border-hover);
+}
+
+.status-badge::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.cert p.exam-rating {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  opacity: 0.8;
+  margin: -14px 0 16px;
+}
+
+.exam-breakdown {
+  margin-bottom: 24px;
+}
+
+.exam-breakdown summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  list-style: none;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  transition: color 0.25s ease;
+}
+
+.exam-breakdown summary::-webkit-details-marker {
+  display: none;
+}
+
+.exam-breakdown summary::before {
+  content: '+';
+  width: 1em;
+  text-align: center;
+  color: var(--accent-text);
+}
+
+.exam-breakdown[open] summary::before {
+  content: '−';
+}
+
+.exam-breakdown summary:hover,
+.exam-breakdown summary:focus-visible {
+  color: var(--text);
+}
+
+.exam-breakdown summary:focus-visible,
+.cert--exam .cert-view:focus-visible {
+  outline: 1px solid var(--accent);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+.exam-breakdown dl {
+  margin-top: 14px;
+  display: grid;
+  gap: 8px;
+}
+
+.exam-breakdown dl > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.88rem;
+}
+
+.exam-breakdown dt {
+  color: var(--muted);
+}
+
+.exam-breakdown dt span {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.68rem;
+  opacity: 0.7;
+  margin-left: 6px;
+}
+
+.exam-breakdown dd {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.8rem;
+  color: var(--text);
+}
+
+.cert--exam .cert-view {
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.cert--exam .cert-view:hover {
+  color: var(--accent-text);
+}
+
 /* ========== ACADEMIC SKILLS & TECHNOLOGIES ========== */
 .skills-section {
   padding: 96px var(--gutter);
